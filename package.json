@@ -1,8 +1,8 @@
 {
   "name": "rimsage-web",
   "scripts": {
-    "dev": "bun --port=3001 index.html",
+    "dev": "bun --port=3000 index.html",
     "build": "bun build index.html --outdir dist",
-    "start": "bun dist/index.html"
+    "start": "bun --port=3001 dist/index.html"
   }
 }
