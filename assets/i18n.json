@@ -42,7 +42,6 @@
     "self.item2": "Needs local RimWorld files plus a decompiled C# project.",
     "self.item3": "Permitted under the RimWorld EULA for local use.",
     "footer.title": "Built for developers",
-    "footer.desc": "RimSage is an unofficial, developer-focused MCP server for exploring RimWorld source.",
     "common.copy": "Copy",
     "common.copied": "Copied"
   },
@@ -89,7 +88,6 @@
     "self.item2": "需要本地 RimWorld 文件与反编译 C# 项目。",
     "self.item3": "RimWorld EULA 允许本地使用。",
     "footer.title": "面向开发者",
-    "footer.desc": "RimSage 为非官方、面向开发者的 RimWorld 源码 MCP 服务。",
     "common.copy": "复制",
     "common.copied": "已复制"
   }
