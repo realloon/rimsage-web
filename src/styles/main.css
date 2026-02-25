@@ -308,12 +308,8 @@ h1 {
   margin: 0 0 var(--space-1);
 }
 
-.hero-panel code {
-  font-size: 14px;
-  background: light-dark(rgba(14, 165, 233, 0.1), rgba(14, 165, 233, 0.2));
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
-  display: inline-block;
+.hero-panel .endpoint-cta:hover {
+  text-decoration: none;
 }
 
 .section-header {
@@ -477,10 +473,33 @@ h2 {
   border: none;
   background: light-dark(rgba(148, 163, 184, 0.2), rgba(148, 163, 184, 0.35));
   color: var(--code-ink);
-  font-size: 12px;
-  padding: var(--space-1) var(--space-2);
-  border-radius: 999px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+}
+
+.copy-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.copy-btn .icon-copied {
+  display: none;
+  color: light-dark(#16a34a, #4ade80);
+}
+
+.copy-btn.copied .icon-copy {
+  display: none;
+}
+
+.copy-btn.copied .icon-copied {
+  display: block;
 }
 
 .tabs {
@@ -534,6 +553,35 @@ h2 {
   background: light-dark(rgba(15, 23, 42, 0.04), rgba(148, 163, 184, 0.08));
   border: 1px solid var(--line);
   color: var(--muted);
+}
+
+.self-steps {
+  margin: var(--space-2) 0 0;
+  padding-inline-start: 24px;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.self-step {
+  color: var(--muted);
+}
+
+.self-step-desc {
+  margin: 0 0 var(--space-1);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.self-step code {
+  display: block;
+  background: var(--code-bg);
+  color: var(--code-ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .reveal {

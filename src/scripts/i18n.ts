@@ -18,6 +18,11 @@ function applyLang(lang: Lang) {
     }
   })
 
+  document.querySelectorAll<HTMLElement>('[data-copy]').forEach(btn => {
+    btn.classList.remove('copied')
+    btn.setAttribute('aria-label', dict['common.copy'])
+  })
+
   const select = document.querySelector<HTMLSelectElement>('[data-lang-select]')
   if (select) {
     select.value = currentLang

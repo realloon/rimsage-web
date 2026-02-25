@@ -1,5 +1,40 @@
 ---
-import { selfHostedItems } from '../data/site'
+const setupSteps = [
+  {
+    descKey: 'self.step1.desc',
+    desc: 'Clone the RimSage repository to your local machine.',
+    command: 'git clone https://github.com/realloon/RimSage.git',
+  },
+  {
+    descKey: 'self.step2.desc',
+    desc: 'Install project dependencies with Bun.',
+    command: 'bun install',
+  },
+  {
+    descKey: 'self.step3.desc',
+    desc: 'Import RimWorld XML Def data from your local game directory.',
+    command: 'bun run src/scripts/import-defs /path/to/your/rimworld/root/path',
+  },
+  {
+    descKey: 'self.step4.desc',
+    desc: 'Import decompiled C# source files for API and type lookup.',
+    command: 'bun run src/scripts/import-csharp /path/to/decompiled/source/root/path',
+  },
+  {
+    descKey: 'self.step5.desc',
+    desc: 'Build the server after data import is complete.',
+    command: 'bun run build',
+  },
+]
+
+const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
+  <span class="token-key">"mcpServers"</span><span class="token-punc">: {</span>
+    <span class="token-key">"rimsage"</span><span class="token-punc">: {</span>
+      <span class="token-key">"command"</span><span class="token-punc">: </span><span class="token-string">"bun"</span><span class="token-punc">,</span>
+      <span class="token-key">"args"</span><span class="token-punc">: [</span><span class="token-string">"run"</span><span class="token-punc">, </span><span class="token-string">"/path/to/this/repo"</span><span class="token-punc">]</span>
+    <span class="token-punc">}</span>
+  <span class="token-punc">}</span>
+<span class="token-punc">}</span>`
 ---
 
 <section class="reveal" id="self">
@@ -10,13 +45,35 @@ import { selfHostedItems } from '../data/site'
     </p>
   </header>
 
-  <ul class="self-list">
+  <ol class="self-steps">
     {
-      selfHostedItems.map(item => (
-        <li class="self-item" data-i18n={item.key}>
-          {item.text}
+      setupSteps.map(step => (
+        <li class="self-step">
+          <p class="self-step-desc" data-i18n={step.descKey}>{step.desc}</p>
+          <code>{step.command}</code>
         </li>
       ))
     }
-  </ul>
+  </ol>
+
+  <div class="generic-config">
+    <h4 data-i18n="self.genericTitle">Generic mcp.json</h4>
+    <p class="section-subtitle" data-i18n="self.genericDesc">
+      Use this template to register your local self-hosted server.
+    </p>
+    <div class="code-block">
+      <button class="copy-btn" type="button" data-copy aria-label="Copy">
+        <svg class="icon-copy" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M8 7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V7Zm2 0h8v10h-8V7ZM4 9a2 2 0 0 1 2-2h1v2H6v9h8v1a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9Z"
+          ></path>
+        </svg>
+        <svg class="icon-copied" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.29 5.71a1 1 0 0 1 0 1.41l-9 9a1 1 0 0 1-1.41 0l-4-4a1 1 0 0 1 1.41-1.41L10.58 13.99l8.29-8.28a1 1 0 0 1 1.42 0Z"></path>
+        </svg>
+        <span class="sr-only" data-i18n="common.copy">Copy</span>
+      </button>
+      <pre><code set:html={selfHostedGenericConfigHtml}></code></pre>
+    </div>
+  </div>
 </section>

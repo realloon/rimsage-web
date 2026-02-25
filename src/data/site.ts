@@ -125,15 +125,3 @@ export const genericConfigHtml = `<span class="token-punc">{</span>
     <span class="token-punc">}</span>
   <span class="token-punc">}</span>
 <span class="token-punc">}</span>`
-
-export const selfHostedItems = [
-  { key: 'self.item1', text: 'Requires Bun runtime and Ripgrep.' },
-  {
-    key: 'self.item2',
-    text: 'Needs local RimWorld files plus a decompiled C# project.',
-  },
-  {
-    key: 'self.item3',
-    text: 'Permitted under the RimWorld EULA for local use.',
-  },
-] as const
