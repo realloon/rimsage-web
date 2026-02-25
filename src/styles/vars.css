@@ -1,0 +1,36 @@
+:root {
+  /* font */
+  --sans: 'PT Sans', system-ui, sans-serif;
+  --monospace: 'Monaco', 'Consolas', monospace;
+
+  /* size */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+  --radius: 16px;
+  --radius-sm: 8px;
+  --page-gap: max(16px, calc((100vw - min(1080px, 100vw)) / 2));
+
+  /* color */
+  --bg: light-dark(#f9fbff, #0b1220);
+  --bg-2: light-dark(#eef3fa, #111827);
+  --ink: light-dark(#0b1220, #f8fafc);
+  --muted: light-dark(#4b5b6b, #a8b3c4);
+  --accent: light-dark(#0ea5e9, #38bdf8);
+  --accent-2: light-dark(#10b981, #34d399);
+  --accent-3: light-dark(#2563eb, #60a5fa);
+  --card: light-dark(#ffffff, #0f172a);
+  --line: light-dark(rgba(12, 18, 28, 0.08), rgba(148, 163, 184, 0.2));
+  --shadow: 0 16px 32px light-dark(rgba(12, 18, 28, 0.12), rgba(0, 0, 0, 0.45));
+  --grid: light-dark(rgba(10, 15, 25, 0.05), rgba(148, 163, 184, 0.08));
+  --panel: light-dark(rgba(255, 255, 255, 0.85), rgba(15, 23, 42, 0.72));
+  --primary: light-dark(#0b1220, #e2e8f0);
+  --primary-ink: light-dark(#ffffff, #0b1220);
+  --code-bg: light-dark(#f1f5f9, #0b1220);
+  --code-ink: light-dark(#0b1220, #e2e8f0);
+}
