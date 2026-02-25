@@ -1,0 +1,20 @@
+---
+import { toolItems } from '../data/site'
+---
+
+<section class="reveal" id="tools">
+  <header class="section-header">
+    <h2 data-i18n="tools.title">Available Tools</h2>
+  </header>
+
+  <ul class="tool-list">
+    {
+      toolItems.map(tool => (
+        <li class="tool-item">
+          <span class="tool-name">{tool.name}</span>
+          <span class="tool-desc" data-i18n={tool.descKey}>{tool.desc}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

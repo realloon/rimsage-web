@@ -18,9 +18,10 @@ function applyLang(lang: Lang) {
     }
   })
 
-  document.querySelectorAll<HTMLElement>('[data-lang]').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === currentLang)
-  })
+  const select = document.querySelector<HTMLSelectElement>('[data-lang-select]')
+  if (select) {
+    select.value = currentLang
+  }
 }
 
 function setLang(lang: Lang) {
@@ -37,7 +38,8 @@ export function setupLangSwitch() {
 
   applyLang(lang)
 
-  document.querySelectorAll<HTMLElement>('[data-lang]').forEach(btn => {
-    btn.addEventListener('click', () => setLang(btn.dataset.lang as Lang))
-  })
+  const select = document.querySelector<HTMLSelectElement>('[data-lang-select]')
+  if (select) {
+    select.addEventListener('change', () => setLang(select.value as Lang))
+  }
 }

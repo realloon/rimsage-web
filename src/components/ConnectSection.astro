@@ -1,0 +1,90 @@
+---
+import { connectClients, genericConfigHtml } from '../data/site'
+
+const firstClientId = connectClients[0]?.id ?? 'claude'
+---
+
+<section class="reveal" id="connect">
+  <header class="section-header">
+    <h2 data-i18n="connect.title">Connect in Minutes</h2>
+    <p class="section-subtitle" data-i18n="connect.subtitle">
+      Online service is the recommended default for new users.
+    </p>
+  </header>
+
+  <article class="callout">
+    <header>
+      <h3 data-i18n="connect.onlineTitle">Online Service (Recommended)</h3>
+      <p data-i18n="connect.onlineDesc">
+        Use the hosted MCP endpoint to start instantly.
+      </p>
+    </header>
+    <div class="code-block">
+      <pre><code>https://mcp.rimsage.com/mcp</code></pre>
+    </div>
+  </article>
+
+  <article class="connect-commands">
+    <header class="section-header">
+      <h3 data-i18n="connect.tabs.title">Integration Commands</h3>
+      <p class="section-subtitle" data-i18n="connect.tabs.subtitle">
+        Pick your client. For placeholders, use the generic config below.
+      </p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Client commands">
+      {
+        connectClients.map(client => (
+          <button
+            class="tab-btn"
+            role="tab"
+            aria-selected={client.id === firstClientId ? 'true' : 'false'}
+            aria-controls={`panel-${client.id}`}
+            id={`tab-${client.id}`}
+            data-tab={client.id}
+          >
+            {client.label}
+          </button>
+        ))
+      }
+    </div>
+
+    {
+      connectClients.map(client => (
+        <div
+          class:list={{ 'tab-panel': true, active: client.id === firstClientId }}
+          role="tabpanel"
+          id={`panel-${client.id}`}
+          aria-labelledby={`tab-${client.id}`}
+          data-panel={client.id}
+        >
+          <div class="code-block">
+            <button class="copy-btn" type="button" data-copy data-i18n="common.copy">
+              Copy
+            </button>
+            <pre><code set:html={client.commandHtml}></code></pre>
+          </div>
+          {client.isPlaceholder && (
+            <div class="tab-note" data-i18n="connect.placeholder">
+              Command placeholder. Use the generic mcp.json config below or replace
+              with your client's official syntax.
+            </div>
+          )}
+        </div>
+      ))
+    }
+
+    <div class="generic-config">
+      <h4 data-i18n="connect.genericTitle">Generic mcp.json</h4>
+      <p class="section-subtitle" data-i18n="connect.genericDesc">
+        Works with most MCP-compatible clients.
+      </p>
+      <div class="code-block">
+        <button class="copy-btn" type="button" data-copy data-i18n="common.copy">
+          Copy
+        </button>
+        <pre><code set:html={genericConfigHtml}></code></pre>
+      </div>
+    </div>
+  </article>
+</section>

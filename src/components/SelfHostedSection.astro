@@ -1,0 +1,22 @@
+---
+import { selfHostedItems } from '../data/site'
+---
+
+<section class="reveal" id="self">
+  <header class="section-header">
+    <h2 data-i18n="self.title">Self-Hosted (Advanced)</h2>
+    <p class="section-subtitle" data-i18n="self.subtitle">
+      For offline use, customization, or local data.
+    </p>
+  </header>
+
+  <ul class="self-list">
+    {
+      selfHostedItems.map(item => (
+        <li class="self-item" data-i18n={item.key}>
+          {item.text}
+        </li>
+      ))
+    }
+  </ul>
+</section>

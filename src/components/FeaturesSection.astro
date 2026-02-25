@@ -1,0 +1,27 @@
+---
+import { featureCards } from '../data/site'
+---
+
+<section class="reveal" id="features">
+  <header class="section-header">
+    <h2 data-i18n="features.title">Why RimSage</h2>
+    <p class="section-subtitle" data-i18n="features.subtitle">
+      LLMs often use outdated, incorrect, or even fabricated APIs.
+    </p>
+    <p class="section-subtitle" data-i18n="features.lede">
+      RimSage provides real source access and retrieval tools to maximize API
+      reliability.
+    </p>
+  </header>
+
+  <div class="card-grid">
+    {
+      featureCards.map(card => (
+        <article class="card">
+          <h3 data-i18n={card.titleKey}>{card.title}</h3>
+          <p data-i18n={card.descKey}>{card.desc}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
