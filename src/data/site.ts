@@ -42,12 +42,12 @@ export const featureCards = [
 
 export const toolItems = [
   {
-    name: 'search_rimworld_source',
+    name: 'search_source',
     descKey: 'tools.search',
     desc: 'Search RimWorld source code.',
   },
   {
-    name: 'read_rimworld_file',
+    name: 'read_file',
     descKey: 'tools.read',
     desc: 'Read files with pagination.',
   },
