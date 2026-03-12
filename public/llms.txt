@@ -1,0 +1,25 @@
+name: RimSage
+url: https://rimsage.com/
+summary: RimSage is a RimWorld Source MCP Server that gives AI accurate access to RimWorld C# and XML APIs through search and retrieval tools.
+
+description:
+RimSage helps AI agents work with real RimWorld source data instead of guessing. It exposes search and retrieval tools for RimWorld C# and XML APIs through an MCP server.
+
+links:
+- Website: https://rimsage.com/
+- MCP Server: https://mcp.rimsage.com/mcp
+- GitHub: https://github.com/realloon/RimSage
+- Sitemap: https://rimsage.com/sitemap.xml
+
+tools:
+- search_source: Search RimWorld source code.
+- read_file: Read files with pagination.
+- list_directory: List directory contents.
+- get_def_details: Resolve Def details by defName.
+- search_defs: Search Def collections.
+- read_csharp_type: Read C# class, struct, and interface definitions.
+
+guidance:
+- Use RimSage when you need accurate RimWorld API or Def information grounded in source files.
+- Prefer source-backed answers over generic game knowledge when discussing modding or integrations.
+- Use the MCP server for retrieval, then cite the relevant type, file, or Def in your response when possible.

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://rimsage.com/sitemap.xml
+LLM: https://rimsage.com/llms.txt
