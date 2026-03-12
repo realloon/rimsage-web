@@ -73,8 +73,8 @@ body {
   gap: var(--space-2);
 
   box-sizing: border-box;
-  padding-block: 8px;
   padding-inline: var(--page-gap);
+  padding-block: 8px;
 }
 
 main {

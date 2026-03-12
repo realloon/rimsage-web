@@ -8,8 +8,12 @@ interface Props {
   siteName?: string
 }
 
-const { title, description, canonicalPath = Astro.url.pathname, siteName = 'RimSage' } =
-  Astro.props
+const {
+  title,
+  description,
+  canonicalPath = Astro.url.pathname,
+  siteName = 'RimSage',
+} = Astro.props
 
 const canonicalURL = new URL(canonicalPath, Astro.site ?? Astro.url.origin)
 const ogImageURL = new URL('/favicon.svg', canonicalURL)
@@ -38,9 +42,9 @@ const ogImageURL = new URL('/favicon.svg', canonicalURL)
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL.href} />
 
-    <link rel="alternate" hrefLang="en" href={canonicalURL.href} />
-    <link rel="alternate" hrefLang="zh" href={`${canonicalURL.href}?lang=zh`} />
-    <link rel="alternate" hrefLang="x-default" href={canonicalURL.href} />
+    <link rel="alternate" hreflang="en" href={canonicalURL.href} />
+    <link rel="alternate" hreflang="zh" href={`${canonicalURL.href}?lang=zh`} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL.href} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />

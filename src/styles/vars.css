@@ -34,3 +34,9 @@
   --code-bg: light-dark(#f1f5f9, #0b1220);
   --code-ink: light-dark(#0b1220, #e2e8f0);
 }
+
+@media (width > 720px) {
+  :root {
+    --page-gap: max(32px, calc((100vw - min(1080px, 100vw)) / 2));
+  }
+}
