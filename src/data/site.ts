@@ -73,7 +73,14 @@ export const toolItems = [
   },
 ] as const
 
-export const connectClients = [
+type ConnectClient = {
+  id: string
+  label: string
+  commandHtml: string
+  isPlaceholder?: boolean
+}
+
+export const connectClients: readonly ConnectClient[] = [
   {
     id: 'claude',
     label: 'Claude Code',
@@ -116,7 +123,7 @@ export const connectClients = [
     commandHtml:
       '<span class="token-command">code</span> --add-mcp "{\\"name\\":\\"rimsage\\", \\"type\\": \\"http\\", \\"url\\": \\"https://mcp.rimsage.com/mcp\\"}"',
   },
-] as const
+]
 
 export const genericConfigHtml = `<span class="token-punc">{</span>
   <span class="token-key">"mcpServers"</span><span class="token-punc">: {</span>
