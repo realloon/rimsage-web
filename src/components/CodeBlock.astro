@@ -1,0 +1,28 @@
+---
+import CopyButton from './CopyButton.astro'
+
+interface Props {
+  code: string
+  copyable?: boolean
+  html?: boolean
+  variant?: 'default' | 'single-line'
+}
+
+const { code, copyable = false, html = false, variant = 'default' } = Astro.props
+---
+
+<div
+  class:list={{
+    'code-block': true,
+    'code-block--single-line': variant === 'single-line',
+  }}
+>
+  {copyable && <CopyButton />}
+  {
+    html ? (
+      <pre><code set:html={code} /></pre>
+    ) : (
+      <pre><code>{code}</code></pre>
+    )
+  }
+</div>

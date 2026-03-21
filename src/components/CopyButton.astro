@@ -1,15 +1,9 @@
 ---
 import CheckIcon from './icons/CheckIcon.astro'
 import CopyIcon from './icons/CopyIcon.astro'
-
-interface Props {
-  ariaLabel?: string
-}
-
-const { ariaLabel = 'Copy' } = Astro.props
 ---
 
-<button class="copy-btn" type="button" data-copy aria-label={ariaLabel}>
+<button class="copy-btn" type="button" data-copy aria-label="Copy">
   <CopyIcon class="icon-copy" />
   <CheckIcon class="icon-copied" />
   <span class="sr-only" data-i18n="common.copy">Copy</span>

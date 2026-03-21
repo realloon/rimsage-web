@@ -1,5 +1,5 @@
 ---
-import CopyButton from './CopyButton.astro'
+import CodeBlock from './CodeBlock.astro'
 import { connectClients, genericConfigHtml } from '../data/site'
 
 const firstClientId = connectClients[0]?.id ?? 'claude'
@@ -20,9 +20,7 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
         Use the hosted MCP endpoint to start instantly.
       </p>
     </header>
-    <div class="code-block">
-      <pre><code>https://mcp.rimsage.com/mcp</code></pre>
-    </div>
+    <CodeBlock code="https://mcp.rimsage.com/mcp" copyable={true} variant="single-line" />
   </article>
 
   <article class="connect-commands">
@@ -62,10 +60,12 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
           aria-labelledby={`tab-${client.id}`}
           data-panel={client.id}
         >
-          <div class="code-block">
-            <CopyButton />
-            <pre><code set:html={client.commandHtml} /></pre>
-          </div>
+          <CodeBlock
+            code={client.commandHtml}
+            copyable={true}
+            variant="single-line"
+            html={true}
+          />
           {client.isPlaceholder && (
             <div class="tab-note" data-i18n="connect.placeholder">
               Command placeholder. Use the generic mcp.json config below or
@@ -81,10 +81,7 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
       <p class="section-subtitle" data-i18n="connect.genericDesc">
         Works with most MCP-compatible clients.
       </p>
-      <div class="code-block">
-        <CopyButton />
-        <pre><code set:html={genericConfigHtml} /></pre>
-      </div>
+      <CodeBlock code={genericConfigHtml} copyable={true} html={true} />
     </div>
   </article>
 </section>

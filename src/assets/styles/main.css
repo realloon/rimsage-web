@@ -299,10 +299,6 @@ h1 {
   margin: 0 0 var(--space-1);
 }
 
-.hero-panel .endpoint-cta:hover {
-  text-decoration: none;
-}
-
 .section-header {
   display: flex;
   flex-direction: column;
@@ -474,6 +470,11 @@ h2 {
   cursor: pointer;
 }
 
+.code-block--single-line .copy-btn {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .copy-btn svg {
   width: 16px;
   height: 16px;
@@ -544,17 +545,6 @@ h2 {
 .self-step-desc {
   margin: 0 0 var(--space-1);
   color: var(--muted);
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.self-step code {
-  display: block;
-  background: var(--code-bg);
-  color: var(--code-ink);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2);
   font-size: 14px;
   line-height: 1.5;
 }

@@ -1,3 +1,7 @@
+---
+import CodeBlock from './CodeBlock.astro'
+---
+
 <section class="hero reveal" id="hero">
   <header class="hero-text">
     <p class="eyebrow">MCP Server for RimWorld Source</p>
@@ -20,14 +24,7 @@
     </div>
   </header>
   <aside class="hero-panel">
-    <p class="label" data-i18n="hero.panelLabel">Online Experience</p>
-    <a
-      class="btn primary endpoint-cta"
-      href="https://chat.rimsage.com"
-      target="_blank"
-      rel="noreferrer"
-      data-i18n="hero.panelCta"
-      >Go to chat.rimsage.com</a
-    >
+    <p class="label" data-i18n="hero.panelLabel">Online Endpoint</p>
+    <CodeBlock code="https://mcp.rimsage.com/mcp" copyable={true} variant="single-line" />
   </aside>
 </section>

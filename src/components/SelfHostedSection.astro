@@ -1,5 +1,5 @@
 ---
-import CopyButton from './CopyButton.astro'
+import CodeBlock from './CodeBlock.astro'
 
 const setupSteps = [
   {
@@ -49,10 +49,14 @@ const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
 
   <ol class="self-steps">
     {
-      setupSteps.map(step => (
+      setupSteps.map((step, index) => (
         <li class="self-step">
           <p class="self-step-desc" data-i18n={step.descKey}>{step.desc}</p>
-          <code>{step.command}</code>
+          <CodeBlock
+            code={step.command}
+            copyable={true}
+            variant="single-line"
+          />
         </li>
       ))
     }
@@ -63,9 +67,6 @@ const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
     <p class="section-subtitle" data-i18n="self.genericDesc">
       Use this template to register your local self-hosted server.
     </p>
-    <div class="code-block">
-      <CopyButton />
-      <pre><code set:html={selfHostedGenericConfigHtml}></code></pre>
-    </div>
+    <CodeBlock code={selfHostedGenericConfigHtml} copyable={true} html={true} />
   </div>
 </section>
