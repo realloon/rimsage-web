@@ -67,8 +67,8 @@ export const toolItems = [
     desc: 'Search Def collections.',
   },
   {
-    name: 'read_csharp_type',
-    descKey: 'tools.readType',
+    name: 'read_csharp_symbol',
+    descKey: 'tools.readSymbol',
     desc: 'Read C# class/struct/interface definitions.',
   },
 ] as const

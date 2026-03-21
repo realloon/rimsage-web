@@ -64,9 +64,7 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
         >
           <div class="code-block">
             <CopyButton />
-            <pre>
-              <code set:html={client.commandHtml} />
-            </pre>
+            <pre><code set:html={client.commandHtml} /></pre>
           </div>
           {client.isPlaceholder && (
             <div class="tab-note" data-i18n="connect.placeholder">

@@ -17,7 +17,7 @@ tools:
 - list_directory: List directory contents.
 - get_def_details: Resolve Def details by defName.
 - search_defs: Search Def collections.
-- read_csharp_type: Read C# class, struct, and interface definitions.
+- read_csharp_symbol: Read C# class, struct, and interface definitions.
 
 guidance:
 - Use RimSage when you need accurate RimWorld API or Def information grounded in source files.
