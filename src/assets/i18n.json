@@ -29,7 +29,7 @@
     "tools.readSymbol": "Read C# class/struct/interface definitions.",
     "connect.title": "Connect in seconds",
     "connect.subtitle": "Online service is the recommended default for new users.",
-    "connect.onlineTitle": "Online Service (Recommended)",
+    "connect.onlineTitle": "Online Service",
     "connect.onlineDesc": "Use the hosted MCP endpoint to start instantly.",
     "connect.tabs.title": "Integration Commands",
     "connect.tabs.subtitle": "Pick your client. For placeholders, use the generic config below.",

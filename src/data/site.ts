@@ -85,13 +85,13 @@ export const connectClients: readonly ConnectClient[] = [
     id: 'claude',
     label: 'Claude Code',
     commandHtml:
-      '<span class="token-command">claude</span> mcp add rimworld-source --transport http https://mcp.rimsage.com/mcp',
+      '<span class="token-command">claude</span> mcp add rimsage --transport http https://mcp.rimsage.com/mcp',
   },
   {
     id: 'gemini',
     label: 'Gemini CLI',
     commandHtml:
-      '<span class="token-command">gemini</span> mcp add rimworld-source --transport http https://mcp.rimsage.com/mcp',
+      '<span class="token-command">gemini</span> mcp add rimsage --transport http https://mcp.rimsage.com/mcp',
   },
   {
     id: 'trae',
@@ -114,8 +114,7 @@ export const connectClients: readonly ConnectClient[] = [
   {
     id: 'opencode',
     label: 'opencode',
-    commandHtml: '# TODO: replace with opencode MCP integration command',
-    isPlaceholder: true,
+    commandHtml: 'opencode mcp add',
   },
   {
     id: 'copilot',
@@ -127,7 +126,7 @@ export const connectClients: readonly ConnectClient[] = [
 
 export const genericConfigHtml = `<span class="token-punc">{</span>
   <span class="token-key">"mcpServers"</span><span class="token-punc">: {</span>
-    <span class="token-key">"rimworld-source"</span><span class="token-punc">: {</span>
+    <span class="token-key">"rimsage"</span><span class="token-punc">: {</span>
       <span class="token-key">"url"</span><span class="token-punc">: </span><span class="token-string">"https://mcp.rimsage.com/mcp"</span>
     <span class="token-punc">}</span>
   <span class="token-punc">}</span>
