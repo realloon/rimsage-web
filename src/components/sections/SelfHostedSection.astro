@@ -20,7 +20,8 @@ const setupSteps = [
   {
     descKey: 'self.step4.desc',
     desc: 'Import decompiled C# source files for API and type lookup.',
-    command: 'bun run src/scripts/import-csharp /path/to/decompiled/source/root/path',
+    command:
+      'bun run src/scripts/import-csharp /path/to/decompiled/source/root/path',
   },
   {
     descKey: 'self.step5.desc',
@@ -51,12 +52,10 @@ const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
     {
       setupSteps.map((step, index) => (
         <li class="self-step">
-          <p class="self-step-desc" data-i18n={step.descKey}>{step.desc}</p>
-          <CodeBlock
-            code={step.command}
-            copyable={true}
-            variant="single-line"
-          />
+          <p class="self-step-desc" data-i18n={step.descKey}>
+            {step.desc}
+          </p>
+          <CodeBlock code={step.command} />
         </li>
       ))
     }
@@ -67,6 +66,6 @@ const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
     <p class="section-subtitle" data-i18n="self.genericDesc">
       Use this template to register your local self-hosted server.
     </p>
-    <CodeBlock code={selfHostedGenericConfigHtml} copyable={true} html={true} />
+    <CodeBlock code={selfHostedGenericConfigHtml} />
   </div>
 </section>

@@ -310,23 +310,6 @@ h2 {
   font-size: 16px;
 }
 
-.code-block {
-  position: relative;
-  background: var(--code-bg);
-  color: var(--code-ink);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2);
-  font-size: 14px;
-  overflow-x: auto;
-  border: 1px solid var(--line);
-}
-
-.code-block pre {
-  line-height: 1.5;
-  white-space: pre;
-  margin: 0;
-}
-
 .token-command {
   color: light-dark(#0f766e, #5eead4);
   font-weight: 600;

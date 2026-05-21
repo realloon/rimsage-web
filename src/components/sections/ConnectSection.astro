@@ -20,7 +20,7 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
         Use the hosted MCP endpoint to start instantly.
       </p>
     </header>
-    <CodeBlock code="https://mcp.rimsage.com/mcp" copyable={true} variant="single-line" />
+    <CodeBlock code="https://mcp.rimsage.com/mcp" />
   </article>
 
   <article class="connect-commands">
@@ -60,12 +60,7 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
           aria-labelledby={`tab-${client.id}`}
           data-panel={client.id}
         >
-          <CodeBlock
-            code={client.commandHtml}
-            copyable={true}
-            variant="single-line"
-            html={true}
-          />
+          <CodeBlock code={client.commandHtml} />
           {client.isPlaceholder && (
             <div class="tab-note" data-i18n="connect.placeholder">
               Command placeholder. Use the generic mcp.json config below or
@@ -81,7 +76,7 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
       <p class="section-subtitle" data-i18n="connect.genericDesc">
         Works with most MCP-compatible clients.
       </p>
-      <CodeBlock code={genericConfigHtml} copyable={true} html={true} />
+      <CodeBlock code={genericConfigHtml} />
     </div>
   </article>
 </section>
