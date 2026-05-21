@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import SiteHeader from '../components/SiteHeader.astro'
-import HeroSection from '../components/sections/HeroSection.astro'
+import SiteHero from '../components/SiteHero.astro'
+import SiteFooter from '../components/SiteFooter.astro'
 import FeaturesSection from '../components/sections/FeaturesSection.astro'
 import ToolsSection from '../components/sections/ToolsSection.astro'
 import ConnectSection from '../components/sections/ConnectSection.astro'
 import SelfHostedSection from '../components/sections/SelfHostedSection.astro'
-import SiteFooter from '../components/SiteFooter.astro'
 import { pageMeta } from '../assets/site'
 
 const structuredData = {
@@ -40,7 +40,7 @@ const structuredData = {
   </Fragment>
   <SiteHeader />
   <main>
-    <HeroSection />
+    <SiteHero />
     <FeaturesSection />
     <ToolsSection />
     <ConnectSection />
