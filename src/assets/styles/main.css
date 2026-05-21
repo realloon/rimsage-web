@@ -81,43 +81,21 @@ main > section {
   gap: var(--space-2);
 }
 
+/* #region todo: combine tidy */
 .token-command {
+  font-weight: bold;
   color: light-dark(#0f766e, #5eead4);
-  font-weight: 600;
 }
-
 .token-key {
   color: light-dark(#2563eb, #93c5fd);
 }
-
 .token-string {
   color: light-dark(#7c3aed, #c4b5fd);
 }
-
 .token-punc {
   color: light-dark(#94a3b8, #64748b);
 }
-
-.tab-note {
-  margin-top: var(--space-1);
-  font-size: 14px;
-  color: var(--muted);
-}
-
-.self-steps {
-  padding-inline-start: 16px;
-}
-
-.self-step {
-  color: var(--muted);
-}
-
-.self-step-desc {
-  margin: 0 0 var(--space-1);
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.5;
-}
+/* #endregion */
 
 .reveal {
   opacity: 0;
