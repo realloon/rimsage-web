@@ -40,28 +40,31 @@ body {
 
 main {
   padding-inline: var(--page-gap);
-  padding-block: 32px;
+  padding-block: 24px 32px;
 }
 
-/* #region global section */
 main > section {
-  padding-block: var(--space-6);
+  margin-block: var(--space-6);
   scroll-margin-top: 48px;
-}
 
-main > section header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-1);
-  margin-bottom: var(--space-2);
-}
+  header {
+    h2 {
+      font-size: clamp(24px, 3vw, 40px);
+    }
 
-main > section header h2 {
-  margin: 0;
-  font-size: clamp(24px, 3vw, 40px);
+    p {
+      color: var(--muted);
+
+      &:first-of-type {
+        margin-top: 16px;
+      }
+
+      &:not(:first-of-type) {
+        margin-top: 8px;
+      }
+    }
+  }
 }
-/* #endregion */
 
 .cta-row {
   display: flex;
@@ -72,62 +75,6 @@ main > section header h2 {
 .section-subtitle {
   color: var(--muted);
   margin: 0;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
-  gap: var(--space-2);
-  margin-top: var(--space-3);
-}
-
-.card {
-  background-color: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2);
-  box-shadow: 0 8px 16px light-dark(rgba(12, 18, 28, 0.08), rgba(0, 0, 0, 0.4));
-}
-
-.card h3 {
-  margin: 0 0 var(--space-1);
-  font-size: 18px;
-}
-
-.card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.tool-list {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-3) 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-  gap: var(--space-2);
-}
-
-.tool-item {
-  background-color: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.tool-name {
-  font-family: var(--monospace);
-  font-size: 14px;
-  color: var(--accent-3);
-}
-
-.tool-desc {
-  color: var(--muted);
-  font-size: 14px;
 }
 
 .callout {
@@ -231,10 +178,7 @@ main > section header h2 {
 }
 
 .self-steps {
-  margin: var(--space-2) 0 0;
-  padding-inline-start: 24px;
-  display: grid;
-  gap: var(--space-1);
+  padding-inline-start: 16px;
 }
 
 .self-step {
@@ -256,20 +200,5 @@ main > section header h2 {
   &.visible {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@media (max-width: 900px) {
-  .nav {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    transition: none;
-  }
-  .btn {
-    transition: none;
   }
 }

@@ -8,13 +8,13 @@ interface Props {
 const { code } = Astro.props
 ---
 
-<div>
+<div class="code-block">
   <CopyButton />
   <pre><code set:html={code} /></pre>
 </div>
 
 <style>
-  div {
+  .code-block {
     position: relative;
 
     color: var(--code-ink);
@@ -23,7 +23,7 @@ const { code } = Astro.props
     font-size: 14px;
     overflow-x: auto;
 
-    padding: var(--space-2);
+    padding: 12px 16px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--line);
   }

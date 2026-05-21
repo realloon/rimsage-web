@@ -2,7 +2,7 @@
 import CodeBlock from './CodeBlock.astro'
 ---
 
-<section class="reveal" id="hero">
+<div class="hero reveal" id="hero">
   <header>
     <p class="eyebrow">MCP Server for RimWorld Source</p>
 
@@ -28,15 +28,15 @@ import CodeBlock from './CodeBlock.astro'
     <p data-i18n="hero.panelLabel">Online Endpoint</p>
     <CodeBlock code="https://mcp.rimsage.com/mcp" />
   </aside>
-</section>
+</div>
 
 <style>
-  section {
+  .hero {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     align-items: center;
     gap: var(--space-4);
-    padding-top: var(--space-3);
+    margin-block: 48px 80px;
   }
 
   .eyebrow {

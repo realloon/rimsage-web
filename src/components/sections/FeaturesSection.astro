@@ -5,23 +5,50 @@ import { featureCards } from '../../assets/site'
 <section class="reveal" id="features">
   <header>
     <h2 data-i18n="features.title">Why RimSage</h2>
-    <p class="section-subtitle" data-i18n="features.subtitle">
+    <p data-i18n="features.subtitle">
       LLMs often use outdated, incorrect, or even fabricated APIs.
     </p>
-    <p class="section-subtitle" data-i18n="features.lede">
+    <p data-i18n="features.lede">
       RimSage provides real source access and retrieval tools to maximize API
       reliability.
     </p>
   </header>
 
-  <div class="card-grid">
+  <article class="cards">
     {
       featureCards.map(card => (
-        <article class="card">
+        <section>
           <h3 data-i18n={card.titleKey}>{card.title}</h3>
           <p data-i18n={card.descKey}>{card.desc}</p>
-        </article>
+        </section>
       ))
     }
-  </div>
+  </article>
 </section>
+
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(224px, 1fr));
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+
+  .cards > section {
+    background-color: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2);
+    box-shadow: 0 8px 16px light-dark(#0c121c14, #00000066);
+
+    h3 {
+      font-size: 1.125rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+  }
+</style>
