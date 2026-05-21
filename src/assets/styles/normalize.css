@@ -7,6 +7,18 @@ body {
   margin: unset;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: unset;
+  line-height: 1.25;
+  margin-block: unset;
+}
+
 a {
   color: inherit;
   text-decoration: none;
