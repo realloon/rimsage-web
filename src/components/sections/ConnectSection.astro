@@ -1,14 +1,42 @@
 ---
 import CodeBlock from '../CodeBlock.astro'
 import { connectClients, genericConfigHtml } from '../../assets/site'
-
-const firstClientId = connectClients[0]?.id ?? 'claude'
 ---
 
+<script>
+  const tabs = document.querySelectorAll<HTMLElement>('.tabs > button')
+  const panels = document.querySelectorAll<HTMLElement>('.tab-panel')
+
+  tabs[0].classList.add('active')
+  panels[0].classList.add('active')
+
+  tabs.forEach(tab => {
+    const { id } = tab.dataset
+
+    tab.addEventListener('click', () => {
+      tabs.forEach(tab => {
+        if (tab.dataset.id === id) {
+          tab.classList.add('active')
+        } else {
+          tab.classList.remove('active')
+        }
+      })
+
+      panels.forEach(panel => {
+        if (panel.dataset.id === id) {
+          panel.classList.add('active')
+        } else {
+          panel.classList.remove('active')
+        }
+      })
+    })
+  })
+</script>
+
 <section class="reveal" id="connect">
-  <header class="section-header">
-    <h2 data-i18n="connect.title">Connect in Minutes</h2>
-    <p class="section-subtitle" data-i18n="connect.subtitle">
+  <header>
+    <h2 data-i18n="connect.title">Connect in seconds</h2>
+    <p data-i18n="connect.subtitle">
       Online service is the recommended default for new users.
     </p>
   </header>
@@ -20,63 +48,125 @@ const firstClientId = connectClients[0]?.id ?? 'claude'
         Use the hosted MCP endpoint to start instantly.
       </p>
     </header>
+
     <CodeBlock code="https://mcp.rimsage.com/mcp" />
   </article>
 
-  <article class="connect-commands">
-    <header class="section-header">
+  <article class="commands">
+    <header>
       <h3 data-i18n="connect.tabs.title">Integration Commands</h3>
-      <p class="section-subtitle" data-i18n="connect.tabs.subtitle">
+      <p data-i18n="connect.tabs.subtitle">
         Pick your client. For placeholders, use the generic config below.
       </p>
     </header>
 
-    <div class="tabs" role="tablist" aria-label="Client commands">
+    <div class="tabs">
       {
         connectClients.map(client => (
-          <button
-            class="tab-btn"
-            role="tab"
-            aria-selected={client.id === firstClientId ? 'true' : 'false'}
-            aria-controls={`panel-${client.id}`}
-            id={`tab-${client.id}`}
-            data-tab={client.id}
-          >
-            {client.label}
-          </button>
+          <button data-id={client.id}>{client.label}</button>
         ))
       }
     </div>
 
     {
       connectClients.map(client => (
-        <div
-          class:list={{
-            'tab-panel': true,
-            active: client.id === firstClientId,
-          }}
-          role="tabpanel"
-          id={`panel-${client.id}`}
-          aria-labelledby={`tab-${client.id}`}
-          data-panel={client.id}
-        >
+        <div data-id={client.id} class="tab-panel">
           <CodeBlock code={client.commandHtml} />
-          {client.isPlaceholder && (
-            <div class="tab-note" data-i18n="connect.placeholder">
-              Command placeholder. Use the generic mcp.json config below or
-              replace with your client's official syntax.
-            </div>
-          )}
         </div>
       ))
     }
 
-    <div class="generic-config">
+    <div class="generic">
       <h4 data-i18n="connect.genericTitle">Generic mcp.json</h4>
-      <p class="section-subtitle" data-i18n="connect.genericDesc">
+      <p data-i18n="connect.genericDesc">
         Works with most MCP-compatible clients.
       </p>
       <CodeBlock code={genericConfigHtml} />
     </div>
   </article>
 </section>
+
+<style>
+  .callout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    align-items: center;
+    gap: 16px;
+
+    background-color: var(--card);
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-top: 16px;
+
+    h3 {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+    }
+  }
+
+  .commands {
+    margin-top: var(--space-4);
+
+    header {
+      h3 {
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: var(--muted);
+      }
+    }
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin-block: 16px;
+
+    button {
+      font-size: 14px;
+      color: var(--muted);
+      background-color: var(--card);
+      padding: var(--space-1) var(--space-2);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.2s;
+
+      &.active {
+        color: var(--primary-ink);
+        background-color: var(--primary);
+      }
+    }
+  }
+
+  .tab-panel {
+    display: none;
+
+    &.active {
+      display: unset;
+    }
+  }
+
+  .generic {
+    margin-top: 16px;
+
+    h4 {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+  }
+</style>

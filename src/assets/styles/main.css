@@ -47,7 +47,7 @@ main > section {
   margin-block: var(--space-6);
   scroll-margin-top: 48px;
 
-  header {
+  & > header {
     h2 {
       font-size: clamp(24px, 3vw, 40px);
     }
@@ -66,61 +66,19 @@ main > section {
   }
 }
 
+/* #region todo: combine tidy */
+.copy-btn {
+  visibility: hidden;
+}
+.code-block:hover .copy-btn {
+  visibility: unset;
+}
+/* #endregion */
+
 .cta-row {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-}
-
-.section-subtitle {
-  color: var(--muted);
-  margin: 0;
-}
-
-.callout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: var(--space-2);
-  background-color: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: var(--space-3);
-  box-shadow: var(--shadow);
-  align-items: center;
-}
-
-.callout h3 {
-  margin: 0 0 var(--space-1);
-}
-
-.callout p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.section-header h2,
-.section-header h3 {
-  margin: 0;
-}
-
-.connect-commands {
-  margin-top: var(--space-4);
-  display: block;
-}
-
-.connect-commands .section-header {
-  margin-bottom: var(--space-1);
-}
-
-.generic-config {
-  margin-top: var(--space-2);
-  display: grid;
-  gap: var(--space-1);
-}
-
-.generic-config h4 {
-  margin: 0;
-  font-size: 16px;
 }
 
 .token-command {
@@ -138,37 +96,6 @@ main > section {
 
 .token-punc {
   color: light-dark(#94a3b8, #64748b);
-}
-
-.tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-  margin: var(--space-2) 0;
-}
-
-.tab-btn {
-  border: 1px solid var(--line);
-  background-color: var(--card);
-  padding: var(--space-1) var(--space-2);
-  border-radius: 999px;
-  font-size: 14px;
-  cursor: pointer;
-  color: var(--muted);
-  transition: all 0.2s ease;
-}
-
-.tab-btn.active {
-  background-color: var(--primary);
-  color: var(--primary-ink);
-}
-
-.tab-panel {
-  display: none;
-}
-
-.tab-panel.active {
-  display: block;
 }
 
 .tab-note {

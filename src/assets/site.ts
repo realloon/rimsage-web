@@ -114,7 +114,7 @@ export const connectClients: readonly ConnectClient[] = [
   {
     id: 'opencode',
     label: 'opencode',
-    commandHtml: 'opencode mcp add',
+    commandHtml: '<span class="token-command">opencode</span> mcp add',
   },
   {
     id: 'copilot',
