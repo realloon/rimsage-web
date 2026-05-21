@@ -3,8 +3,71 @@ import CheckIcon from './icons/CheckIcon.astro'
 import CopyIcon from './icons/CopyIcon.astro'
 ---
 
-<button class="copy-btn" type="button" data-copy aria-label="Copy">
+<script>
+  document.addEventListener('click', async e => {
+    const button = (e.target as HTMLButtonElement).closest('.copy-btn')
+    if (!button) return
+
+    const text = button.parentElement!.lastElementChild!.textContent
+    await navigator.clipboard.writeText(text)
+
+    button.classList.add('copied')
+
+    let resetTimer: number | undefined
+    if (resetTimer) {
+      window.clearTimeout(resetTimer)
+    }
+
+    resetTimer = window.setTimeout(() => {
+      button.classList.remove('copied')
+    }, 1500)
+  })
+</script>
+
+<button class="copy-btn" type="button">
   <CopyIcon class="icon-copy" />
   <CheckIcon class="icon-copied" />
-  <span class="sr-only" data-i18n="common.copy">Copy</span>
 </button>
+
+<style>
+  button {
+    position: absolute;
+    top: 10px;
+    right: 8px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--code-ink);
+    background: light-dark(#94a3b833, #94a3b859);
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .icon-copied {
+    display: none;
+  }
+
+  button.copied {
+    .icon-copy {
+      display: none;
+    }
+
+    .icon-copied {
+      display: unset;
+      fill: light-dark(#16a34a, #4ade80);
+    }
+  }
+</style>
