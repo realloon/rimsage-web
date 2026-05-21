@@ -1,27 +1,7 @@
+@import url('./normalize.css');
 @import url('./vars.css');
 
-/* #region normalize */
-:root {
-  color-scheme: light dark;
-  text-autospace: normal; /* Baseline 2025 */
-}
-
-code {
-  font-family: var(--monospace);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-/* #endregion */
-
 body {
-  margin: 0;
   color: var(--ink);
   font-family: var(--sans);
   background:
@@ -58,35 +38,10 @@ body {
   }
 }
 
-
-
 main {
-  box-sizing: border-box;
   padding-inline: var(--page-gap);
   padding-block: 32px;
 }
-
-footer {
-  box-sizing: border-box;
-  color: var(--muted);
-  display: flex;
-  flex-direction: column;
-  padding-inline: var(--page-gap);
-  padding-block: var(--space-5);
-  border-top: 1px solid var(--line);
-  gap: var(--space-1);
-
-  h3 {
-    margin: 0;
-    color: var(--ink);
-  }
-
-  p {
-    margin: 0;
-  }
-}
-
-
 
 section {
   padding-block: var(--space-6);
