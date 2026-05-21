@@ -58,24 +58,7 @@ body {
   }
 }
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 1;
 
-  background: var(--panel);
-  backdrop-filter: blur(8px);
-  border-block-end: 1px solid var(--line);
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--space-2);
-
-  box-sizing: border-box;
-  padding-inline: var(--page-gap);
-  padding-block: 8px;
-}
 
 main {
   box-sizing: border-box;
@@ -103,99 +86,7 @@ footer {
   }
 }
 
-.logo {
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-}
 
-.nav {
-  display: flex;
-  gap: var(--space-2);
-  font-size: 14px;
-  color: var(--muted);
-
-  a {
-    padding: var(--space-1) var(--space-2);
-    border-radius: 999px;
-    transition: 0.2s;
-
-    &:hover {
-      background: light-dark(rgba(14, 165, 233, 0.1), rgba(56, 189, 248, 0.2));
-      color: var(--ink);
-    }
-  }
-}
-
-.lang-switch {
-  margin-inline-start: auto;
-  display: inline-flex;
-  align-items: center;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  height: 40px;
-  padding: 0;
-}
-
-.lang-switch select {
-  appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  background: transparent;
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 600;
-  height: 100%;
-  display: block;
-  padding: 0 14px;
-  text-align: center;
-  text-align-last: center;
-  cursor: pointer;
-  border-radius: 999px;
-}
-
-.lang-switch select:focus {
-  outline: none;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
-
-.repo-link {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--line);
-  padding: 0;
-  border-radius: 50%;
-  color: var(--ink);
-  background: var(--card);
-  transition: background 0.2s ease;
-}
-
-.repo-link svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  fill: currentColor;
-}
-
-.repo-link:hover {
-  background: light-dark(rgba(14, 165, 233, 0.08), rgba(56, 189, 248, 0.14));
-}
 
 section {
   padding-block: var(--space-6);
@@ -451,47 +342,6 @@ h2 {
 
 .token-punc {
   color: light-dark(#94a3b8, #64748b);
-}
-
-.copy-btn {
-  position: absolute;
-  top: var(--space-1);
-  right: var(--space-1);
-  border: none;
-  background: light-dark(rgba(148, 163, 184, 0.2), rgba(148, 163, 184, 0.35));
-  color: var(--code-ink);
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.code-block--single-line .copy-btn {
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.copy-btn svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-}
-
-.copy-btn .icon-copied {
-  display: none;
-  color: light-dark(#16a34a, #4ade80);
-}
-
-.copy-btn.copied .icon-copy {
-  display: none;
-}
-
-.copy-btn.copied .icon-copied {
-  display: block;
 }
 
 .tabs {

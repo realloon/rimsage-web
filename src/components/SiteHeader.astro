@@ -3,11 +3,10 @@ import GitHubIcon from './icons/GitHubIcon.astro'
 import { navLinks } from '../data/site'
 ---
 
-<header class="site-header">
-  <div class="logo">
-    <span><a href="/">RimSage</a></span>
-  </div>
-  <nav class="nav" aria-label="Primary">
+<header>
+  <a href="/" style="font-weight: bold;">RimSage</a>
+
+  <nav>
     {
       navLinks.map(link => (
         <a href={link.href} data-i18n={link.i18nKey}>
@@ -16,21 +15,78 @@ import { navLinks } from '../data/site'
       ))
     }
   </nav>
-  <div class="lang-switch">
-    <label class="sr-only" for="lang-select">Language</label>
-    <select id="lang-select" data-lang-select aria-label="Language switch">
-      <option value="en">EN</option>
-      <option value="zh">中文</option>
-    </select>
-  </div>
+
+  <select name="language" data-lang-select>
+    <option value="en">en</option>
+    <option value="zh">zh</option>
+  </select>
+
   <a
     class="repo-link"
     href="https://github.com/realloon/RimSage"
     target="_blank"
     rel="noreferrer"
-    aria-label="RimSage GitHub repository"
+    aria-label="repository"
     title="GitHub"
   >
     <GitHubIcon />
   </a>
 </header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--panel);
+    backdrop-filter: blur(8px);
+    border-block-end: 1px solid var(--line);
+    padding: 8px var(--page-gap);
+  }
+
+  nav {
+    display: flex;
+    margin-left: 16px;
+
+    a {
+      color: var(--muted);
+      font-size: 14px;
+      padding: var(--space-1) var(--space-2);
+      border-radius: 999px;
+      transition: 0.2s;
+
+      &:hover {
+        color: var(--ink);
+        background-color: light-dark(#0da2e71a, #38bdf833);
+        text-decoration: unset;
+      }
+    }
+  }
+
+  select {
+    appearance: none;
+    font-family: var(--monospace);
+    text-align: center;
+    padding: 4px 10px 6px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    outline: unset;
+    margin-left: auto;
+  }
+
+  .repo-link {
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    margin-left: 16px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+      display: block;
+    }
+  }
+</style>
