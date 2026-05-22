@@ -7,9 +7,6 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
   const tabs = document.querySelectorAll<HTMLElement>('.tabs > button')
   const panels = document.querySelectorAll<HTMLElement>('[data-panel]')
 
-  tabs[0].classList.add('active')
-  panels[0].classList.add('active')
-
   tabs.forEach(tab => {
     const { id } = tab.dataset
 
@@ -62,15 +59,21 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
 
     <div class="tabs">
       {
-        connectClients.map(client => (
-          <button data-id={client.id}>{client.label}</button>
+        connectClients.map((client, index) => (
+          <button class={index === 0 ? 'active' : ''} data-id={client.id}>
+            {client.label}
+          </button>
         ))
       }
     </div>
 
     {
-      connectClients.map(client => (
-        <div data-panel data-id={client.id} style="display: none;">
+      connectClients.map((client, index) => (
+        <div
+          data-panel
+          data-id={client.id}
+          style={`display: ${index === 0 ? 'unset' : 'none'};`}
+        >
           <CodeBlock code={client.commandHtml} />
         </div>
       ))
