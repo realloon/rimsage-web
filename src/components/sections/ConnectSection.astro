@@ -5,7 +5,7 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
 
 <script>
   const tabs = document.querySelectorAll<HTMLElement>('.tabs > button')
-  const panels = document.querySelectorAll<HTMLElement>('.tab-panel')
+  const panels = document.querySelectorAll<HTMLElement>('[data-panel]')
 
   tabs[0].classList.add('active')
   panels[0].classList.add('active')
@@ -24,9 +24,9 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
 
       panels.forEach(panel => {
         if (panel.dataset.id === id) {
-          panel.classList.add('active')
+          panel.style.display = 'unset'
         } else {
-          panel.classList.remove('active')
+          panel.style.display = 'none'
         }
       })
     })
@@ -70,7 +70,7 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
 
     {
       connectClients.map(client => (
-        <div data-id={client.id} class="tab-panel">
+        <div data-panel data-id={client.id} style="display: none;">
           <CodeBlock code={client.commandHtml} />
         </div>
       ))
@@ -145,14 +145,6 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
         color: var(--primary-ink);
         background-color: var(--primary);
       }
-    }
-  }
-
-  .tab-panel {
-    display: none;
-
-    &.active {
-      display: unset;
     }
   }
 
