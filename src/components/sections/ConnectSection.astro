@@ -1,6 +1,60 @@
 ---
 import CodeBlock from '../CodeBlock.astro'
-import { connectClients, genericConfigHtml } from '../../assets/site'
+
+type ConnectClient = {
+  id: string
+  label: string
+  command: string
+}
+
+const connectClients: readonly ConnectClient[] = [
+  {
+    id: 'claude',
+    label: 'Claude Code',
+    command:
+      '<span class="token-command">claude</span> mcp add rimsage --transport http https://mcp.rimsage.com/mcp',
+  },
+  {
+    id: 'gemini',
+    label: 'Gemini CLI',
+    command:
+      '<span class="token-command">gemini</span> mcp add rimsage --transport http https://mcp.rimsage.com/mcp',
+  },
+  {
+    id: 'trae',
+    label: 'TRAE',
+    command: '# TODO: replace with TRAE MCP integration command',
+  },
+  {
+    id: 'cursor',
+    label: 'Cursor',
+    command: '# TODO: replace with Cursor MCP integration command',
+  },
+  {
+    id: 'kilo',
+    label: 'Kilo Code',
+    command: '# TODO: replace with Kilo Code MCP integration command',
+  },
+  {
+    id: 'opencode',
+    label: 'opencode',
+    command: '<span class="token-command">opencode</span> mcp add',
+  },
+  {
+    id: 'copilot',
+    label: 'VS Code',
+    command:
+      '<span class="token-command">code</span> --add-mcp "{\\"name\\":\\"rimsage\\", \\"type\\": \\"http\\", \\"url\\": \\"https://mcp.rimsage.com/mcp\\"}"',
+  },
+]
+
+const genericConfig = `<span class="token-punc">{</span>
+  <span class="token-key">"mcpServers"</span><span class="token-punc">: {</span>
+    <span class="token-key">"rimsage"</span><span class="token-punc">: {</span>
+      <span class="token-key">"url"</span><span class="token-punc">: </span><span class="token-string">"https://mcp.rimsage.com/mcp"</span>
+    <span class="token-punc">}</span>
+  <span class="token-punc">}</span>
+<span class="token-punc">}</span>`
 ---
 
 <script>
@@ -74,7 +128,7 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
           data-id={client.id}
           style={`display: ${index === 0 ? 'unset' : 'none'};`}
         >
-          <CodeBlock code={client.commandHtml} />
+          <CodeBlock code={client.command} />
         </div>
       ))
     }
@@ -84,7 +138,7 @@ import { connectClients, genericConfigHtml } from '../../assets/site'
       <p data-i18n="connect.genericDesc">
         Works with most MCP-compatible clients.
       </p>
-      <CodeBlock code={genericConfigHtml} />
+      <CodeBlock code={genericConfig} />
     </div>
   </article>
 </section>

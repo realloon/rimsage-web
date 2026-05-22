@@ -1,10 +1,12 @@
 ---
-import '../assets/styles/main.css'
-import { pageMeta } from '../assets/site'
+import '../styles/main.css'
 
-const { title, description, canonicalPath, siteName } = pageMeta
+const name = 'RimSage'
+const title = 'RimSage — RimWorld Source MCP Server'
+const description =
+  'RimSage is a RimWorld Source MCP Server that gives AI accurate access to RimWorld C# and XML APIs through search and retrieval tools.'
 
-const canonicalURL = new URL(canonicalPath, Astro.site ?? Astro.url.origin)
+const canonicalURL = new URL('/', Astro.site ?? Astro.url.origin)
 const ogImageURL = new URL('/favicon.svg', canonicalURL)
 
 const structuredData = {
@@ -14,7 +16,7 @@ const structuredData = {
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Web',
   url: 'https://rimsage.com/',
-  description: pageMeta.description,
+  description: description,
   softwareHelp: 'https://github.com/realloon/RimSage',
   offers: {
     '@type': 'Offer',
@@ -36,7 +38,7 @@ const structuredData = {
     <link rel="canonical" href={canonicalURL.href} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={siteName} />
+    <meta property="og:site_name" content={name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL.href} />

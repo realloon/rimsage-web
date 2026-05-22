@@ -1,6 +1,12 @@
 ---
 import GitHubIcon from './icons/GitHubIcon.astro'
-import { navLinks } from '../assets/site'
+
+const navLinks = [
+  { href: '#features', i18nKey: 'nav.features', label: 'Features' },
+  { href: '#tools', i18nKey: 'nav.tools', label: 'Tools' },
+  { href: '#connect', i18nKey: 'nav.connect', label: 'Connect' },
+  { href: '#self', i18nKey: 'nav.selfhost', label: 'Self-Hosted' },
+]
 ---
 
 <header>
