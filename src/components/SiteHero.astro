@@ -105,6 +105,17 @@ import CodeBlock from './CodeBlock.astro'
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: var(--space-1);
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: limegreen;
+        margin-right: 8px;
+        transform: translateY(-20%);
+      }
     }
   }
 </style>

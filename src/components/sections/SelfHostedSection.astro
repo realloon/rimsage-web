@@ -32,7 +32,7 @@ const setupSteps = [
   },
 ]
 
-const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
+const code = `<span class="token-punc">{</span>
   <span class="token-key">"mcpServers"</span><span class="token-punc">: {</span>
     <span class="token-key">"rimsage"</span><span class="token-punc">: {</span>
       <span class="token-key">"command"</span><span class="token-punc">: </span><span class="token-string">"bun"</span><span class="token-punc">,</span>
@@ -44,7 +44,7 @@ const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
 
 <section id="self">
   <header>
-    <h2 data-i18n="self.title">Self-Hosted (Advanced)</h2>
+    <h2 data-i18n="self.title">Self-Hosted</h2>
     <p data-i18n="self.subtitle">
       For offline use, customization, or local data.
     </p>
@@ -66,7 +66,7 @@ const selfHostedGenericConfigHtml = `<span class="token-punc">{</span>
     <p data-i18n="self.genericDesc">
       Use this template to register your local self-hosted server.
     </p>
-    <CodeBlock code={selfHostedGenericConfigHtml} />
+    <CodeBlock code={code} />
   </div>
 </section>
 
