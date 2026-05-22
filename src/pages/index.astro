@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import Layout from '../layouts/Layout.astro'
 import SiteHeader from '../components/SiteHeader.astro'
 import SiteHero from '../components/SiteHero.astro'
 import SiteFooter from '../components/SiteFooter.astro'
@@ -7,37 +7,9 @@ import FeaturesSection from '../components/sections/FeaturesSection.astro'
 import ToolsSection from '../components/sections/ToolsSection.astro'
 import ConnectSection from '../components/sections/ConnectSection.astro'
 import SelfHostedSection from '../components/sections/SelfHostedSection.astro'
-import { pageMeta } from '../assets/site'
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'RimSage',
-  applicationCategory: 'DeveloperApplication',
-  operatingSystem: 'Web',
-  url: 'https://rimsage.com/',
-  description: pageMeta.description,
-  softwareHelp: 'https://github.com/realloon/RimSage',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-}
 ---
 
-<BaseLayout
-  title={pageMeta.title}
-  description={pageMeta.description}
-  canonicalPath={pageMeta.canonicalPath}
-  siteName={pageMeta.siteName}
->
-  <Fragment slot="head">
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(structuredData)}
-    />
-  </Fragment>
+<Layout>
   <SiteHeader />
   <main>
     <SiteHero />
@@ -47,4 +19,4 @@ const structuredData = {
     <SelfHostedSection />
   </main>
   <SiteFooter />
-</BaseLayout>
+</Layout>

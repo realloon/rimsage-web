@@ -1,22 +1,27 @@
 ---
 import '../assets/styles/main.css'
+import { pageMeta } from '../assets/site'
 
-interface Props {
-  title: string
-  description: string
-  canonicalPath?: string
-  siteName?: string
-}
-
-const {
-  title,
-  description,
-  canonicalPath = Astro.url.pathname,
-  siteName = 'RimSage',
-} = Astro.props
+const { title, description, canonicalPath, siteName } = pageMeta
 
 const canonicalURL = new URL(canonicalPath, Astro.site ?? Astro.url.origin)
 const ogImageURL = new URL('/favicon.svg', canonicalURL)
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'RimSage',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'Web',
+  url: 'https://rimsage.com/',
+  description: pageMeta.description,
+  softwareHelp: 'https://github.com/realloon/RimSage',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+}
 ---
 
 <html lang="en">
@@ -43,17 +48,17 @@ const ogImageURL = new URL('/favicon.svg', canonicalURL)
     <meta name="twitter:image" content={ogImageURL.href} />
 
     <link rel="alternate" hreflang="en" href={canonicalURL.href} />
-    <link rel="alternate" hreflang="zh" href={`${canonicalURL.href}?lang=zh`} />
     <link rel="alternate" hreflang="x-default" href={canonicalURL.href} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <slot name="head" />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
   </head>
   <body>
     <slot />
-    <script>
-      import '../scripts/main.ts'
-    </script>
   </body>
 </html>
