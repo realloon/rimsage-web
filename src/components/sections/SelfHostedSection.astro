@@ -45,16 +45,14 @@ const code = `<span class="token-punc">{</span>
 <section id="self">
   <header>
     <h2>Self-Hosted</h2>
-    <p>
-      For offline use, customization, or local data.
-    </p>
+    <p>For offline use, customization, or local data.</p>
   </header>
 
   <ol>
     {
       setupSteps.map(step => (
         <li>
-          <p data-i18n={step.descKey}>{step.desc}</p>
+          <p>{step.desc}</p>
           <CodeBlock code={step.command} />
         </li>
       ))
@@ -63,9 +61,7 @@ const code = `<span class="token-punc">{</span>
 
   <div class="generic">
     <h4>Generic mcp.json</h4>
-    <p>
-      Use this template to register your local self-hosted server.
-    </p>
+    <p>Use this template to register your local self-hosted server.</p>
     <CodeBlock code={code} />
   </div>
 </section>

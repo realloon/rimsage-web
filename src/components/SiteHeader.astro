@@ -2,10 +2,10 @@
 import GitHubIcon from './icons/GitHubIcon.astro'
 
 const navLinks = [
-  { href: '#features', i18nKey: 'nav.features', label: 'Features' },
-  { href: '#tools', i18nKey: 'nav.tools', label: 'Tools' },
-  { href: '#connect', i18nKey: 'nav.connect', label: 'Connect' },
-  { href: '#self', i18nKey: 'nav.selfhost', label: 'Self-Hosted' },
+  { href: '#features', label: 'Features' },
+  { href: '#tools', label: 'Tools' },
+  { href: '#connect', label: 'Connect' },
+  { href: '#self', label: 'Self-Hosted' },
 ]
 ---
 
@@ -13,13 +13,7 @@ const navLinks = [
   <a href="/" style="font-weight: bold;">RimSage</a>
 
   <nav>
-    {
-      navLinks.map(link => (
-        <a href={link.href} data-i18n={link.i18nKey}>
-          {link.label}
-        </a>
-      ))
-    }
+    {navLinks.map(link => <a href={link.href}>{link.label}</a>)}
   </nav>
 
   <a
