@@ -44,15 +44,6 @@ main {
 }
 
 /* #region todo: combine tidy */
-.copy-btn {
-  visibility: hidden;
-}
-.code-block:hover .copy-btn {
-  visibility: unset;
-}
-/* #endregion */
-
-/* #region todo: combine tidy */
 .token-command {
   font-weight: bold;
   color: light-dark(#0f766e, #5eead4);

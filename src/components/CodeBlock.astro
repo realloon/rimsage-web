@@ -1,5 +1,6 @@
 ---
-import CopyButton from './CopyButton.astro'
+import CheckIcon from './icons/CheckIcon.astro'
+import CopyIcon from './icons/CopyIcon.astro'
 
 interface Props {
   code: string
@@ -8,8 +9,33 @@ interface Props {
 const { code } = Astro.props
 ---
 
+<script>
+  document.addEventListener('click', async e => {
+    const button = (e.target as HTMLButtonElement).closest('.copy-btn')
+    if (!button) return
+
+    const text = button.parentElement!.lastElementChild!.textContent
+    await navigator.clipboard.writeText(text)
+
+    button.classList.add('copied')
+
+    let resetTimer: number | undefined
+    if (resetTimer) {
+      window.clearTimeout(resetTimer)
+    }
+
+    resetTimer = window.setTimeout(() => {
+      button.classList.remove('copied')
+    }, 1500)
+  })
+</script>
+
 <div class="code-block">
-  <CopyButton />
+  <button class="copy-btn" type="button">
+    <CopyIcon />
+    <CheckIcon />
+  </button>
+
   <pre><code set:html={code} /></pre>
 </div>
 
@@ -26,11 +52,55 @@ const { code } = Astro.props
     padding: 12px 16px;
     border-radius: var(--radius-sm);
     border: 1px solid var(--line);
+
+    &:hover button {
+      opacity: 1;
+    }
   }
 
   pre {
     line-height: 1.5;
     white-space: pre;
-    margin: 0;
+    margin-block: unset;
+  }
+
+  button {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+
+    color: var(--code-ink);
+    background: #94a3b833;
+
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+
+    transition: 0.2s;
+    opacity: 0;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+
+      &:last-of-type {
+        display: none;
+      }
+    }
+  }
+
+  button.copied {
+    svg:first-of-type {
+      display: none;
+    }
+
+    svg:last-of-type {
+      display: unset;
+      fill: #16a34a;
+    }
   }
 </style>
