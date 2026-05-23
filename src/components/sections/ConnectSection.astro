@@ -1,4 +1,5 @@
 ---
+import SiteSection from '../SiteSection.astro'
 import CodeBlock from '../CodeBlock.astro'
 
 type ConnectClient = {
@@ -84,12 +85,11 @@ const genericConfig = `<span class="token-punc">{</span>
   })
 </script>
 
-<section id="connect">
-  <header>
-    <h2>Connect in seconds</h2>
-    <p>Online service is the recommended default for new users.</p>
-  </header>
-
+<SiteSection
+  id="connect"
+  title="Connect in seconds"
+  descriptions={['Online service is the recommended default for new users.']}
+>
   <article class="callout">
     <header>
       <h3>Online Service</h3>
@@ -133,7 +133,7 @@ const genericConfig = `<span class="token-punc">{</span>
       <CodeBlock code={genericConfig} />
     </div>
   </article>
-</section>
+</SiteSection>
 
 <style>
   .callout {

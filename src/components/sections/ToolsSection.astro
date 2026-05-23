@@ -1,4 +1,6 @@
 ---
+import SiteSection from '../SiteSection.astro'
+
 const toolItems = [
   {
     name: 'search_source',
@@ -33,11 +35,7 @@ const toolItems = [
 ]
 ---
 
-<section id="tools">
-  <header>
-    <h2>Available Tools</h2>
-  </header>
-
+<SiteSection id="tools" title="Available Tools">
   <ul>
     {
       toolItems.map(tool => (
@@ -48,7 +46,7 @@ const toolItems = [
       ))
     }
   </ul>
-</section>
+</SiteSection>
 
 <style>
   ul {

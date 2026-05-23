@@ -1,0 +1,40 @@
+---
+interface Props {
+  id: string
+  title: string
+  descriptions?: string[]
+}
+
+const { id, title, descriptions } = Astro.props
+---
+
+<section id={id}>
+  <header>
+    <h2>{title}</h2>
+    {descriptions?.map(description => <p>{description}</p>)}
+  </header>
+  <slot />
+</section>
+
+<style>
+  section {
+    margin-block: var(--space-6);
+    scroll-margin-top: 64px;
+  }
+
+  h2 {
+    font-size: clamp(24px, 3vw, 40px);
+  }
+
+  p {
+    color: var(--muted);
+
+    &:first-of-type {
+      margin-top: 16px;
+    }
+
+    &:not(:first-of-type) {
+      margin-top: 8px;
+    }
+  }
+</style>

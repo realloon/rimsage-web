@@ -1,4 +1,11 @@
 ---
+import SiteSection from '../SiteSection.astro'
+
+const descriptions = [
+  'LLMs often use outdated, incorrect, or even fabricated APIs.',
+  'RimSage provides real source access and retrieval tools to maximize API reliability.',
+]
+
 const featureCards = [
   {
     titleKey: 'features.card1.title',
@@ -27,29 +34,18 @@ const featureCards = [
 ]
 ---
 
-<section id="features">
-  <header>
-    <h2>Why RimSage</h2>
-    <p>
-      LLMs often use outdated, incorrect, or even fabricated APIs.
-    </p>
-    <p>
-      RimSage provides real source access and retrieval tools to maximize API
-      reliability.
-    </p>
-  </header>
-
+<SiteSection id="features" title="Why RimSage" descriptions={descriptions}>
   <article class="cards">
     {
       featureCards.map(card => (
         <section>
-          <h3 data-i18n={card.titleKey}>{card.title}</h3>
-          <p data-i18n={card.descKey}>{card.desc}</p>
+          <h3>{card.title}</h3>
+          <p>{card.desc}</p>
         </section>
       ))
     }
   </article>
-</section>
+</SiteSection>
 
 <style>
   .cards {

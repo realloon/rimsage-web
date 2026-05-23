@@ -1,4 +1,5 @@
 ---
+import SiteSection from '../SiteSection.astro'
 import CodeBlock from '../CodeBlock.astro'
 
 const setupSteps = [
@@ -42,12 +43,11 @@ const code = `<span class="token-punc">{</span>
 <span class="token-punc">}</span>`
 ---
 
-<section id="self">
-  <header>
-    <h2>Self-Hosted</h2>
-    <p>For offline use, customization, or local data.</p>
-  </header>
-
+<SiteSection
+  id="self"
+  title="Self-Hosted"
+  descriptions={['For offline use, customization, or local data.']}
+>
   <ol>
     {
       setupSteps.map(step => (
@@ -64,7 +64,7 @@ const code = `<span class="token-punc">{</span>
     <p>Use this template to register your local self-hosted server.</p>
     <CodeBlock code={code} />
   </div>
-</section>
+</SiteSection>
 
 <style>
   ol {
