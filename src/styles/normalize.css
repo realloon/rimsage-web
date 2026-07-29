@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
   text-autospace: normal;
+  scroll-behavior: smooth;
 
   @media (prefers-color-scheme: dark) {
     -webkit-font-smoothing: antialiased;
