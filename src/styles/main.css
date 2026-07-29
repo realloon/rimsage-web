@@ -1,5 +1,5 @@
-@import url('./normalize.css');
-@import url('./vars.css');
+@import './normalize.css';
+@import './vars.css';
 
 body {
   color: var(--ink);
@@ -35,10 +35,6 @@ body {
     opacity: 0.45;
     pointer-events: none;
     z-index: 0;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    -webkit-font-smoothing: antialiased;
   }
 }
 
