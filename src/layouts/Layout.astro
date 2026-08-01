@@ -2,9 +2,9 @@
 import '../styles/main.css'
 
 const name = 'RimSage'
-const title = 'RimSage — RimWorld Source MCP Server'
+const title = 'RimSage: RimWorld Source MCP Server'
 const description =
-  'RimSage is a RimWorld Source MCP Server that gives AI accurate access to RimWorld C# and XML APIs through search and retrieval tools.'
+  'RimSage is an MCP server that enables searching and browsing of RimWorld source code.'
 
 const canonicalURL = new URL('/', Astro.site ?? Astro.url.origin)
 const ogImageURL = new URL('/favicon.svg', canonicalURL)
@@ -34,7 +34,6 @@ const structuredData = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="theme-color" content="#0b1220" />
     <link rel="canonical" href={canonicalURL.href} />
 
     <meta property="og:type" content="website" />
