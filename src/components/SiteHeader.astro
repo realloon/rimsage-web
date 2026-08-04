@@ -30,9 +30,9 @@ const navLinks = [
 
 <style>
   header {
+    z-index: 1;
     position: sticky;
     top: 0;
-    z-index: 1;
 
     display: flex;
     align-items: center;
@@ -41,6 +41,10 @@ const navLinks = [
     backdrop-filter: blur(8px);
     border-block-end: 1px solid var(--line);
     padding: 8px var(--page-gap);
+  }
+
+  a:hover {
+    text-decoration: unset;
   }
 
   nav {
@@ -61,20 +65,18 @@ const navLinks = [
       &:hover {
         color: var(--ink);
         background-color: light-dark(#0da2e71a, #38bdf833);
-        text-decoration: unset;
       }
     }
   }
 
   .repo-link {
-    border: 1px solid var(--line);
     border-radius: 50%;
     margin-left: auto;
 
     svg {
+      vertical-align: top;
       width: 32px;
       height: 32px;
-      display: block;
     }
   }
 </style>
