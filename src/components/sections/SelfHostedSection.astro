@@ -4,30 +4,25 @@ import CodeBlock from '../CodeBlock.astro'
 
 const setupSteps = [
   {
-    descKey: 'self.step1.desc',
     desc: 'Clone the RimSage repository to your local machine.',
     command:
       '<span class="token-command">git</span> clone https://github.com/realloon/RimSage.git',
   },
   {
-    descKey: 'self.step2.desc',
     desc: 'Install project dependencies with Bun.',
     command: '<span class="token-command">bun</span> install',
   },
   {
-    descKey: 'self.step3.desc',
     desc: 'Import RimWorld XML Def data from your local game directory.',
     command:
       '<span class="token-command">bun</span> run src/scripts/import-defs /path/to/your/rimworld/root/path',
   },
   {
-    descKey: 'self.step4.desc',
     desc: 'Import decompiled C# source files for API and type lookup.',
     command:
       '<span class="token-command">bun</span> run src/scripts/import-csharp /path/to/decompiled/source/root/path',
   },
   {
-    descKey: 'self.step5.desc',
     desc: 'Build the server after data import is complete.',
     command: '<span class="token-command">bun</span> run build',
   },

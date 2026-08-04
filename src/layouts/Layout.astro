@@ -6,7 +6,7 @@ const title = 'RimSage: RimWorld Source MCP Server'
 const description =
   'RimSage is an MCP server that enables searching and browsing of RimWorld source code.'
 
-const canonicalURL = new URL('/', Astro.site ?? Astro.url.origin)
+const canonicalURL = new URL('/', Astro.site)
 const ogImageURL = new URL('/favicon.svg', canonicalURL)
 
 const structuredData = {
@@ -15,7 +15,7 @@ const structuredData = {
   name: 'RimSage',
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Web',
-  url: 'https://rimsage.com/',
+  url: canonicalURL.href,
   description: description,
   softwareHelp: 'https://github.com/realloon/RimSage',
   offers: {
