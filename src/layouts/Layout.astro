@@ -7,7 +7,7 @@ const description =
   'RimSage is an MCP server that enables searching and browsing of RimWorld source code.'
 
 const canonicalURL = new URL('/', Astro.site)
-const ogImageURL = new URL('/favicon.svg', canonicalURL)
+const ogImageURL = new URL('/og.png', canonicalURL)
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -43,13 +43,10 @@ const structuredData = {
     <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:image" content={ogImageURL.href} />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL.href} />
-
-    <link rel="alternate" hreflang="en" href={canonicalURL.href} />
-    <link rel="alternate" hreflang="x-default" href={canonicalURL.href} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
