@@ -16,36 +16,28 @@ const connectClients: readonly ConnectClient[] = [
       '<span class="token-command">claude</span> mcp add rimsage --transport http https://mcp.rimsage.com/mcp',
   },
   {
+    id: 'codex-cli',
+    label: 'Codex CLI',
+    command:
+      '<span class="token-command">codex</span> mcp add rimsage --url https://mcp.rimsage.com/mcp',
+  },
+  {
     id: 'gemini',
     label: 'Gemini CLI',
     command:
       '<span class="token-command">gemini</span> mcp add rimsage --transport http https://mcp.rimsage.com/mcp',
   },
   {
-    id: 'trae',
-    label: 'TRAE',
-    command: '# TODO: replace with TRAE MCP integration command',
-  },
-  {
-    id: 'cursor',
-    label: 'Cursor',
-    command: '# TODO: replace with Cursor MCP integration command',
-  },
-  {
     id: 'kilo',
     label: 'Kilo Code',
-    command: '# TODO: replace with Kilo Code MCP integration command',
+    command:
+      '<span class="token-command">kilo</span> mcp add # interactive mode',
   },
   {
     id: 'opencode',
     label: 'opencode',
-    command: '<span class="token-command">opencode</span> mcp add',
-  },
-  {
-    id: 'codex',
-    label: 'Codex CLI',
     command:
-      '<span class="token-command">codex</span> mcp add rimsage --url https://mcp.rimsage.com/mcp',
+      '<span class="token-command">opencode</span> mcp add # interactive mode',
   },
   {
     id: 'copilot',
@@ -108,7 +100,7 @@ const genericConfig = `<span class="token-punc">{</span>
   <article class="commands">
     <header>
       <h3>Integration Commands</h3>
-      <p>Pick your client. For placeholders, use the generic config below.</p>
+      <p>Pick your client.</p>
     </header>
 
     <div class="tabs">
